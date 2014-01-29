@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @component.amount %>
+</p>
+
+<p>
+  <strong>Generic:</strong>
+  <%= @component.generic_id %>
+</p>
+
+<p>
+  <strong>Ingredient:</strong>
+  <%= @component.ingredient_id %>
+</p>
+
+<p>
+  <strong>Cocktail:</strong>
+  <%= @component.cocktail_id %>
+</p>
+
+<%= link_to 'Edit', edit_component_path(@component) %> |
+<%= link_to 'Back', components_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @generic.name %>
+</p>
+
+<p>
+  <strong>Proof:</strong>
+  <%= @generic.proof %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @generic.category %>
+</p>
+
+<%= link_to 'Edit', edit_generic_path(@generic) %> |
+<%= link_to 'Back', generics_path %>
