@@ -1,4 +1,12 @@
 Barbot2::Application.routes.draw do
+  resources :components
+
+  resources :ingredients
+
+  resources :generics
+
+  resources :cocktails
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
