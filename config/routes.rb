@@ -9,7 +9,7 @@ Barbot2::Application.routes.draw do
   resources :generics
 
   resources :cocktails
-  root :to => redirect('/cocktails')
+  root :to => redirect('/static_pages/home')
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

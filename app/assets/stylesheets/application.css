@@ -11,16 +11,3 @@
  *= require_self
  *= require_tree .
  */
-#head {
-	font-family: Courier;
-	height: 25px;
-	text-align: center;
-	padding-top: 8px;
-	border: black 1px solid;	
-	border-radius: 	2px;
-	background-color: #5275C7;
-}
-#subhead {
-	text-align: left;
-	margin-top: -10px;
-}

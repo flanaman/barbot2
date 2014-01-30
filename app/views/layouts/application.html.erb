@@ -5,13 +5,27 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id='head'>barbot: make me a drink</h1>
-<h2 id='subhead'><%= link_to 'cocktails', cocktails_path %>
-<%= link_to 'ingredients', ingredients_path %>
-</h2>
-<%= yield %>
-
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "barbot", '#', id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "home",    'home' %></li>
+              <li><%= link_to "help",    '#' %></li>
+              <li><%= link_to "sign in", '#' %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
 </body>
 </html>
