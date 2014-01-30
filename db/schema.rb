@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127221751) do
+ActiveRecord::Schema.define(version: 20140130210235) do
 
   create_table "cocktails", force: true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140127221751) do
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "components", force: true do |t|
@@ -44,6 +45,13 @@ ActiveRecord::Schema.define(version: 20140127221751) do
     t.integer  "proof"
     t.integer  "rating"
     t.integer  "generic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

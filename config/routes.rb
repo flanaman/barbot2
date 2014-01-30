@@ -1,4 +1,6 @@
 Barbot2::Application.routes.draw do
+  resources :users
+
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
