@@ -1,8 +1,8 @@
 body {
-  background-color: #fff;
+  background-color: #eee;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 18px;
 }
 
@@ -36,7 +36,8 @@ div {
 }
 
 #notice {
-  color: green;
+  background-color: #ddd;
+  color: blue;
 }
 
 .field_with_errors {
@@ -66,4 +67,18 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+#head {
+  font-family: Courier;
+  height: 25px;
+  text-align: center;
+  padding-top: 8px;
+  border: black 1px solid;  
+  border-radius:  2px;
+  background-color: #5275C7;
+}
+#subhead {
+  text-align: left;
+  margin-top: -10px;
 }
