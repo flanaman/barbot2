@@ -1,6 +1,7 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% provide(:title, 'sign up') %>
+<h1>sign up</h1>
 
+<%= render 'shared/error_messages' %>
 <%= render 'form' %>
-
-<%= link_to 'Back', users_path %>
+<%#=possibly add class row, span6 offset3 to error render %>  
+<%= link_to 'back', users_path %>
