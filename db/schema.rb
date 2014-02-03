@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140202210259) do
+ActiveRecord::Schema.define(version: 20140203042407) do
 
   create_table "cocktails", force: true do |t|
     t.string   "name"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140202210259) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "cocktails", ["user_id"], name: "index_cocktails_on_user_id"
 
   create_table "components", force: true do |t|
     t.string   "amount"

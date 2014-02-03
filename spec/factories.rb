@@ -5,4 +5,11 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
   end
+
+  factory :cocktail do
+    name "Manhattan"
+    description "mostly bourbon"
+    rating 5
+    user
+  end
 end
