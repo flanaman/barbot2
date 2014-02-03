@@ -34,9 +34,11 @@ describe "Authentication" do
         fill_in "password", with: user.password
         click_button "sign in"
       end
+      before { sign_in user }
 
       it { should have_title(user.name) }
       it { should have_link('profile',     href: user_path(user)) }
+      it { should have_link('users',       href: users_path) }
       it { should have_link('sign out',    href: signout_path) }
       it { should have_link('settings',    href: edit_user_path(user)) }
       it { should_not have_link('sign in', href: signin_path) }
@@ -73,7 +75,10 @@ describe "Authentication" do
           before { visit edit_user_path(user) }
           it { should have_title('sign in') }
         end
-
+        describe "visiting the user index" do
+          before { visit users_path }
+          it { should have_title('sign in') }
+        end
         describe "submitting to the update action" do
           before { patch user_path(user) }
           specify { expect(response).to redirect_to(signin_path) }
