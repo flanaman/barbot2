@@ -14,19 +14,19 @@ describe "User pages" do
     it { should have_title('all users') }
     it { should have_content('all users') }
 
-    describe "pagination" do
+    # describe "pagination" do
 
-      before(:all) { 30.times { FactoryGirl.create(:user) } }
-      after(:all)  { User.delete_all }
+    #   before(:all) { 30.times { FactoryGirl.create(:user) } }
+    #   after(:all)  { User.delete_all }
 
-      it { should have_selector('div.pagination') }
+    #   it { should have_selector('div.pagination') }
 
-      it "should list each user" do
-        User.paginate(page: 1).each do |user|
-          expect(page).to have_selector('li', text: user.name)
-        end
-      end
-    end
+    #   it "should list each user" do
+    #     User.paginate(page: 1).each do |user|
+    #       expect(page).to have_selector('li', text: user.name)
+    #     end
+    #   end
+    # end
   end
 
   describe "profile page" do
