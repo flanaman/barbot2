@@ -1,5 +1,6 @@
 class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:create, :destroy]
 
   # GET /cocktails
   # GET /cocktails.json
@@ -24,17 +25,17 @@ class CocktailsController < ApplicationController
   # POST /cocktails
   # POST /cocktails.json
   def create
-    @cocktail = Cocktail.new(cocktail_params)
+    # @cocktail = Cocktail.new(cocktail_params)
 
-    respond_to do |format|
-      if @cocktail.save
-        format.html { redirect_to @cocktail, notice: 'Cocktail was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @cocktail }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @cocktail.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @cocktail.save
+    #     format.html { redirect_to @cocktail, notice: 'Cocktail was successfully created.' }
+    #     format.json { render action: 'show', status: :created, location: @cocktail }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @cocktail.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /cocktails/1
@@ -54,11 +55,11 @@ class CocktailsController < ApplicationController
   # DELETE /cocktails/1
   # DELETE /cocktails/1.json
   def destroy
-    @cocktail.destroy
-    respond_to do |format|
-      format.html { redirect_to cocktails_url }
-      format.json { head :no_content }
-    end
+    # @cocktail.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to cocktails_url }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

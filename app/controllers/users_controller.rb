@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user=User.find(params[:id])
+    @cocktails = @user.cocktails.paginate(page: params[:page])
   end
 
   # GET /users/new
@@ -83,13 +84,6 @@ class UsersController < ApplicationController
     end
 
     #before filter/actions
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "please sign in with barbot"
-      end
-    end
 
     def correct_user
       @user = User.find(params[:id])

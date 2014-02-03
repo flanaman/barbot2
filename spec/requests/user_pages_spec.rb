@@ -31,10 +31,19 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:c1) { FactoryGirl.create(:cocktail, user: user, name: "Foo") }
+    let!(:c2) { FactoryGirl.create(:cocktail, user: user, name: "Bar") }
+
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+
+    describe "cocktails" do
+      it { should have_content(c1.name) }
+      it { should have_content(c2.name) }
+      # it { should have_content(user.cocktails.count) }
+    end
   end
 
   describe "signup page" do

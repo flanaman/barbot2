@@ -5,7 +5,7 @@ namespace :db do
                  email: "example@bananas.org",
                  password: "foobar",
                  password_confirmation: "foobar")
-    99.times do |n|
+    40.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@bananas.org"
       password  = "password"
@@ -13,6 +13,14 @@ namespace :db do
                    email: email,
                    password: password,
                    password_confirmation: password)
+    end   
+    users = User.all(limit: 6)
+    50.times do
+      name = Faker::Lorem.words(2).join(" ")
+      description = Faker::Lorem.sentence
+      rating = rand(6)
+      users.each { |user| user.cocktails.create!(name: name,
+        description: description, rating: rating) }
     end
   end
 end

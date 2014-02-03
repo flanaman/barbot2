@@ -52,6 +52,7 @@ describe "Authentication" do
   describe "authorization" do
 
     describe "for non-signed-in users" do
+    let(:user) { FactoryGirl.create(:user) }
 
       describe "when attempting to visit a protected page" do
         before do
@@ -81,6 +82,18 @@ describe "Authentication" do
         end
         describe "submitting to the update action" do
           before { patch user_path(user) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
+      describe "in the Cocktails controller" do
+
+        describe "submitting to the create action" do
+          before { post cocktails_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete cocktail_path(FactoryGirl.create(:cocktail)) }
           specify { expect(response).to redirect_to(signin_path) }
         end
       end

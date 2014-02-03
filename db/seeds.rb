@@ -22,15 +22,15 @@ ingredients = [{name: 'Laphroig 10',  proof: 80,
         {name: 'Ron Barcelo Anejo', rating: 3, proof: 80,
         description: 'gold and mixable'}
      ]
-cocktails.each do |cocktail|
-  Cocktail.create!(cocktail)
-end
-generics.each do |generic|
-  Generic.create!(generic)
-end
-ingredients.each do |ingredient|
-  Ingredient.create!(ingredient)
-end
+# cocktails.each do |cocktail|
+#   Cocktail.create!(cocktail)
+# end
+# generics.each do |generic|
+#   Generic.create!(generic)
+# end
+# ingredients.each do |ingredient|
+#   Ingredient.create!(ingredient)
+# end
 # Ingredtype.where(name: 'whiskey')<<Ingredient.where(name: 'Laphroig 10')
 # Ingredtype.where(name: 'gin').ingredient<<Ingredient.where(name: 'New Amsterdam')
 # Ingredtype.where(name: 'rum').ingredient<<Ingredient.where(name: 'Ron Barcelo Anejo')

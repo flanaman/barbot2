@@ -1,0 +1,7 @@
+<li>
+  <span class="name"><%= link_to cocktail.name, cocktail_path(cocktail) %></span>
+  <span class="description">
+    <%= cocktail.description \
+    	+ ("." unless cocktail.description[-1]==".").to_s %>
+  </span>
+</li>
