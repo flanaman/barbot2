@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   def show
     @user=User.find(params[:id])
     @cocktails = @user.cocktails.paginate(page: params[:page])
+    @cocktail = current_user.cocktails.build if signed_in?
+
   end
 
   # GET /users/new

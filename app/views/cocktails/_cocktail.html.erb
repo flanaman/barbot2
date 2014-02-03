@@ -1,7 +1,16 @@
 <li>
-  <span class="name"><%= link_to cocktail.name, cocktail_path(cocktail) %></span>
-  <span class="description">
-    <%= cocktail.description \
-    	+ ("." unless cocktail.description[-1]==".").to_s %>
+  <span class="name">
+  	<%= link_to cocktail.name, cocktail_path(cocktail) %>
   </span>
+ 	<% unless cocktail.description.blank? %>
+	  <span class="description">
+	    <%= cocktail.description \
+	    	+ ("." unless cocktail.description[-1]==".").to_s %>
+	  </span>
+ 	<% end %> 
+ 	<% if current_user?(cocktail.user) %>
+  	<%= link_to "delete", cocktail, method: :delete,
+                                  data: { confirm: "confirm your intentions" },
+                                  title: cocktail.name %>
+  <% end %>
 </li>

@@ -1,6 +1,7 @@
 class Cocktail < ActiveRecord::Base
 	belongs_to :user
   validates :user_id, presence: true
+  validates :name, presence: true
 	has_many :components
 	has_many :ingredients, through: :components
 	has_many :generics, through: :components

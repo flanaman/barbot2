@@ -2,14 +2,22 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>
+      <h3>
         <%= @user.name %>
-      </h1>
+      </h3>
     </section>
+  <% if @user == current_user #signed_in? %>
+<!--     <section>
+      <%= render 'shared/user_info' %>
+    </section>
+ -->    <section>
+      <%= render 'shared/cocktail_form' %>
+    </section>
+  <% end %>
   </aside>
   <div class="span8">
     <% if @user.cocktails.any? %>
-      <h3>cocktails (<%= @user.cocktails.count %>)</h3>
+      <h3>cocktails</h3>
       <ol class="cocktails">
         <%= render @cocktails %>
       </ol>
@@ -17,6 +25,3 @@
     <% end %>
   </div>
 </div>
-
-<%#= link_to 'Edit', edit_user_path(@user) %> <!-- | -->
-<%#= link_to 'Back', users_path %>

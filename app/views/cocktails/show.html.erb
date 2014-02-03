@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @cocktail.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @cocktail.description %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @cocktail.rating %>
-</p>
-
-<%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
-<%= link_to 'Back', cocktails_path %>
+<% provide(:title, @cocktail.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'shared/cocktail_info' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @cocktail.components.any? %>
+      <h3>ingredients (<%= @cocktail.components.count %>) fix me</h3>
+      <ol class="cocktails">
+        <%#= render @cocktails %>
+      </ol>
+      <%#= will_paginate @cocktails %>
+    <% end %>
+  </div>
+</div>
