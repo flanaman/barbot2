@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
+
 
   # GET /users
   # GET /users.json
@@ -33,23 +36,12 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-
-    # below is scaffolding
-    # respond_to do |format|
-    #   if @user.save
-    #     format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #     format.json { render action: 'show', status: :created, location: @user }
-    #   else
-    #     format.html { render action: 'new' }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if @user.update(user_params)
+    if @user.update_attributes(user_params)
       flash[:success] = "barbot has completed processing your new information"
       redirect_to @user
     else
@@ -88,5 +80,19 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, 
         :password_confirmation)
+    end
+
+    #before filter/actions
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "please sign in with barbot"
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
 end

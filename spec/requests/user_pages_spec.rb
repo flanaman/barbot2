@@ -29,7 +29,7 @@ describe "User pages" do
         fill_in "name",         with: "Example User"
         fill_in "email",        with: "user@example.com"
         fill_in "password",     with: "foobar"
-        fill_in "confirmation", with: "foobar"
+        fill_in "confirm password", with: "foobar"
       end
 
       it "should create a user" do
@@ -44,6 +44,32 @@ describe "User pages" do
       	it { should have_title(full_title(user.name)) }
         it { should have_selector('div.alert.alert-success', text: 'welcome') }
       end
+    end
+  end
+
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit edit_user_path(user)
+    end
+
+    describe "with valid information" do
+      let(:new_name)  { "New Name" }
+      let(:new_email) { "new@example.com" }
+      before do
+        fill_in "name",             with: new_name
+        fill_in "email",            with: new_email
+        fill_in "password",         with: user.password
+        fill_in "confirm password", with: user.password
+        click_button "save changes"
+      end
+
+      it { should have_title(new_name) }
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('sign out', href: signout_path) }
+      specify { expect(user.reload.name).to  eq new_name }
+      specify { expect(user.reload.email).to eq new_email }
     end
   end
 end

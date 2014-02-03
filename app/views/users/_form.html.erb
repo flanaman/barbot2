@@ -24,10 +24,15 @@
       <%= f.label :password, "password" %>
       <%= f.password_field :password %>
 
-      <%= f.label :password_confirmation, "confirmation" %>
+      <%= f.label :password_confirmation, "confirm password" %>
       <%= f.password_field :password_confirmation %>
+  
+      <% if @user.new_record? %>  
+        <%= f.submit "create my account", class: "btn btn-large btn-primary" %>
+      <% else %>
+        <%= f.submit "save changes", class: "btn btn-large btn-primary" %>
+      <% end %>
 
-      <%= f.submit "create my account", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

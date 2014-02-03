@@ -1,6 +1,6 @@
-<h1>Editing user</h1>
+<% provide(:title, "edit user information") %>
+<h1>update your information</h1>
 
+<%= render 'shared/error_messages' %>
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
