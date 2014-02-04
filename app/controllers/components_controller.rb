@@ -10,6 +10,10 @@ class ComponentsController < ApplicationController
   # GET /components/1
   # GET /components/1.json
   def show
+    unless @component.generic_id.nil?
+      @name = component.generic.name
+    else
+      @name = component.ingredient.name
   end
 
   # GET /components/new

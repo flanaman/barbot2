@@ -6,10 +6,19 @@
     </section>
   </aside>
   <div class="span8">
-    <% if @cocktail.components.any? %>
-      <h3>ingredients (<%= @cocktail.components.count %>) fix me</h3>
-      <ol class="cocktails">
-        <%#= render @cocktails %>
+    <% if true %>
+      <h3>ingredients</h3>
+      <ol class="ingredients">
+        <% @cocktail.components.each do |component| %>
+          <li>
+            <span class="name">
+              <%#= @name %>
+            </span>
+            <span class="amount">
+              <%= component.amount %>
+            </span>
+          </li>
+        <% end %>
       </ol>
       <%#= will_paginate @cocktails %>
     <% end %>
