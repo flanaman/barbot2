@@ -26,17 +26,24 @@ class IngredientsController < ApplicationController
   # POST /ingredients
   # POST /ingredients.json
   def create
-    @ingredient = Ingredient.new(ingredient_params)
-
-    respond_to do |format|
-      if @ingredient.save
-        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @ingredient }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
-      end
+    @ingredient = current_user.ingredients.build(ingredient_params)
+    if @ingredient.save
+      flash[:success] = "ingredient stored in barbot database"
+      redirect_to root_url
+    else
+      render 'static_pages/home'
     end
+
+    # @ingredient = Ingredient.new(ingredient_params)
+    # respond_to do |format|
+    #   if @ingredient.save
+    #     format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
+    #     format.json { render action: 'show', status: :created, location: @ingredient }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @ingredient.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /ingredients/1
@@ -71,6 +78,12 @@ class IngredientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ingredient_params
-      params.require(:ingredient).permit(:name, :description, :proof, :rating, :generic_id)
+      params.require(:ingredient).permit(:name, :description, :proof, :rating, 
+        :brand, :category)
+    end
+
+    def correct_user
+      @ingredient = current_user.ingredients.find_by(id: params[:id])
+      redirect_to root_url if @ingredient.nil?
     end
 end

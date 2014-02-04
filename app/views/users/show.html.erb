@@ -1,27 +1,27 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <div class="span6">
-    <section>
-      <h3>
-        liquor cabinet
-      </h3>
-    </section>
-    <% if @user == current_user #signed_in? %>
-<!--     <section>
-      <%= render 'shared/user_info' %>
-    </section>
- -->    <section>
-      <%= render 'shared/cocktail_form' %>
-      </section>
-    <% end %>
-  </div>
- <div class="span6">
-    <% if @user.cocktails.any? %>
-      <h3>cocktails</h3>
-      <ol class="cocktails">
-        <%= render @cocktails %>
+    <h3>liquor cabinet </h3>
+      <ol class="ingredients">
+        <li> 
+          <%= link_to "add new ingredient", new_ingredient_path %>
+        </li>
+        <% if @user.ingredients.any? %>
+          <%= render @ingredients %>
+        <% end %>
       </ol>
-      <%= will_paginate @cocktails %>
-    <% end %>
+      <%= will_paginate @ingredients, param_name: 'ingredients_page' %>
+  </div>
+  <div class="span6">
+    <h3>cocktails</h3>
+      <ol class="cocktails">
+        <li> 
+          <%= link_to "add new cocktail", new_cocktail_path %>
+        </li>
+        <% if @user.cocktails.any? %>
+          <%= render @cocktails %>
+        <% end %>
+      </ol>
+      <%= will_paginate @cocktails, param_name: 'cocktails_page' %>
   </div>
 </div>

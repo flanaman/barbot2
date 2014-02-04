@@ -1,5 +1,7 @@
-<h1>New cocktail</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', cocktails_path %>
+<% provide(:title, 'new cocktail') %>
+<div class="row">
+  <div class="span6">
+    <h3>add new cocktail to barbot</h3>
+		<%= render 'form' %>
+  </div>
+</div>

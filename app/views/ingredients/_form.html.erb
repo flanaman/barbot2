@@ -1,33 +1,25 @@
 <%= form_for(@ingredient) do |f| %>
-  <% if @ingredient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
-
-      <ul>
-      <% @ingredient.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "ingredient name..." %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :brand, placeholder: "brand name (optional)..." %>
   </div>
   <div class="field">
-    <%= f.label :proof %><br>
-    <%= f.number_field :proof %>
+    <%= f.text_field :description, placeholder: "description..." %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br>
+    <%= f.text_field :category, 
+          placeholder: "category (mixer, liquor, etc)..." %>
+  </div>
+  <div class="field">
+    <%= f.label :rating, "rating (out of 5)" %>
     <%= f.number_field :rating %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= f.label :proof, "proof" %>
+    <%= f.number_field :proof %>
   </div>
+  <%= f.submit "save ingredient", class: "btn btn-large btn-primary" %>
 <% end %>

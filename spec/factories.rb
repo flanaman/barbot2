@@ -12,4 +12,14 @@ FactoryGirl.define do
     rating 5
     user
   end
+
+  factory :ingredient do
+    name "blended scotch"
+    description "sweet and peaty"
+    brand "black bottle"
+    proof "80"
+    category "whisky"
+    rating 5
+    user
+  end
 end

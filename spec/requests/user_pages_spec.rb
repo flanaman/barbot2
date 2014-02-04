@@ -33,15 +33,22 @@ describe "User pages" do
     let(:user) { FactoryGirl.create(:user) }
     let!(:c1) { FactoryGirl.create(:cocktail, user: user, name: "Foo") }
     let!(:c2) { FactoryGirl.create(:cocktail, user: user, name: "Bar") }
+    let!(:i1) { FactoryGirl.create(:ingredient, user: user, name: "booze") }
+    let!(:i2) { FactoryGirl.create(:ingredient, user: user, name: "mixer") }
 
     before { visit user_path(user) }
 
-    it { should have_content(user.name) }
+    # it { should have_content(user.name) }
     it { should have_title(user.name) }
 
     describe "cocktails" do
       it { should have_content(c1.name) }
       it { should have_content(c2.name) }
+      # it { should have_content(user.cocktails.count) }
+    end
+    describe "ingredients" do
+      it { should have_content(i1.name) }
+      it { should have_content(i2.name) }
       # it { should have_content(user.cocktails.count) }
     end
   end

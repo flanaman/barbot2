@@ -1,0 +1,17 @@
+<li>
+  <span class="name">
+  	<%= link_to ingredient.name, ingredient_path(ingredient) %>
+	  (<%= ingredient.brand unless ingredient.brand.nil? %>)	
+  </span>
+ 	<% unless ingredient.description.blank? %>
+	  <span class="description">
+	    <%= ingredient.description \
+	    	+ ("." unless ingredient.description[-1]==".").to_s %>
+	  </span>
+ 	<% end %> 
+ 	<% if current_user?(ingredient.user) %>
+  	<%= link_to "delete", ingredient, method: :delete,
+                                  data: { confirm: "confirm your intentions" },
+                                  title: ingredient.name %>
+  <% end %>
+</li>

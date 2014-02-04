@@ -1,29 +1,17 @@
 <%= form_for(@cocktail) do |f| %>
-  <% if @cocktail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cocktail.errors.count, "error") %> prohibited this cocktail from being saved:</h2>
-
-      <ul>
-      <% @cocktail.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "cocktail name..." %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, placeholder: "description..." %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br>
+    <%= f.label :rating, "rating (out of 5)" %>
     <%= f.number_field :rating %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= link_to "add ingredient", "#" %>
   </div>
+  <%= f.submit "save cocktail", class: "btn btn-large btn-primary" %>
 <% end %>
