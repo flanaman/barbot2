@@ -37,6 +37,7 @@ def make_cocktails
 end
 
 def make_ingredients
+  users = User.all(limit: 6)
   10.times do
     name = Faker::Lorem.words(2).join(" ")
     category = Faker::Lorem.word
@@ -44,8 +45,8 @@ def make_ingredients
     brand = Faker::Lorem.word
     rating = rand(5)
     proof = rand(200)
-    Ingredient.create!(name: name, category: category, 
-      brand: brand, proof: proof)
+    users.each { |user| user.ingredients.create!(name: name, 
+      category: category, brand: brand, proof: proof) }
   end
 end
 

@@ -1,21 +1,21 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+  <div class="span6">
     <section>
       <h3>
-        <%= @user.name %>
+        liquor cabinet
       </h3>
     </section>
-  <% if @user == current_user #signed_in? %>
+    <% if @user == current_user #signed_in? %>
 <!--     <section>
       <%= render 'shared/user_info' %>
     </section>
  -->    <section>
       <%= render 'shared/cocktail_form' %>
-    </section>
-  <% end %>
-  </aside>
-  <div class="span8">
+      </section>
+    <% end %>
+  </div>
+ <div class="span6">
     <% if @user.cocktails.any? %>
       <h3>cocktails</h3>
       <ol class="cocktails">

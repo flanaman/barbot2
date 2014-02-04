@@ -1,5 +1,7 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user#, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
 
   # GET /ingredients
   # GET /ingredients.json
