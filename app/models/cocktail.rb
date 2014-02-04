@@ -4,6 +4,5 @@ class Cocktail < ActiveRecord::Base
   validates :name, presence: true
 	has_many :components, dependent: :destroy
 	has_many :ingredients, through: :components
-	has_many :generics, through: :components
 	default_scope -> { order('rating DESC')} #order cocktail by rating
 end

@@ -3,7 +3,6 @@ Barbot2::Application.routes.draw do
   root 'static_pages#home'
   resources :components
   resources :ingredients
-  resources :generics
   resources :cocktails
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

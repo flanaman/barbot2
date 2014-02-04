@@ -12,7 +12,7 @@
         <% @cocktail.components.each do |component| %>
           <li>
             <span class="name">
-              <%#= @name %>
+              <%= component.ingredient.name %>
             </span>
             <span class="amount">
               <%= component.amount %>

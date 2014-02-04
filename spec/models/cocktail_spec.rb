@@ -12,7 +12,6 @@ describe Cocktail do
   it { should respond_to(:user) }
   it { should respond_to(:components) }
   it { should respond_to(:ingredients) }
-  it { should respond_to(:generics) }
   its(:user) { should eq user }
 
   it { should be_valid }
