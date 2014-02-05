@@ -1,10 +1,12 @@
 <%= form_for(@cocktail) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_field :name, placeholder: "cocktail name..." %>
+    <%= f.label :name, "name" %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.text_field :description, placeholder: "description..." %>
+    <%= f.label :description, "description" %>
+    <%= f.text_field :description %>
   </div>
   <div class="field">
     <%= f.label :rating, "rating (out of 5)" %>
@@ -14,7 +16,7 @@
     <%= f.fields_for :components do |builder| %>
       <%= render "component_fields", f: builder %>
     <% end %>
-    <div id="links">
+    <div class="btn" id="links">
       <%= link_to_add_association 'add ingredient', f, :components %>
     </div>
   </div>

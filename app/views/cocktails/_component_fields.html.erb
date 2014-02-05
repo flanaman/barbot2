@@ -1,12 +1,16 @@
 <div class="nested-fields">
 	<div class="field">
-    <%= f.text_field :amount, placeholder: "amount..." %>
-    <%= f.label :ingredient, "select ingredient" %>
+    <%= f.label :amount, "amount" %>
+    <%= f.text_field :amount %>
   </div>
 	<div class="field">
-    <%= f.select :ingredient_id, @ingredients.collect {|p| [ p.name, p.id ] }, {include_blank: 'none'} %>
+    <%= f.label :ingredient, "select ingredient" %>
+    <%= f.select :ingredient_id, @ingredients.collect {|p| [ p.name, p.id ] }, 
+    	{include_blank: 'none'} %>
   </div>
-  <%= link_to_remove_association "remove ingredient", f %>
+  <div class="btn">
+  	<%= link_to_remove_association "remove ingredient", f %>
+  </div>
 </div>
     <%#= f.check_box :_destroy %>
     <%#= f.label :_destroy, "remove ingredient" %>
