@@ -11,7 +11,9 @@
     <%= f.number_field :rating %>
   </div>
   <div class="field">
-    <%= link_to "add ingredient", "#" %>
+    <%= f.fields_for :components do |builder| %>
+      <%= render "shared/components_form", f: builder %>
+    <% end %>
   </div>
   <%= f.submit "save cocktail", class: "btn btn-large btn-primary" %>
 <% end %>

@@ -13,16 +13,18 @@ class CocktailsController < ApplicationController
   # GET /cocktails/1
   # GET /cocktails/1.json
   def show
-    # @cocktail = Cocktail.find(params[:id])
+    @cocktail = Cocktail.find(params[:id])
   end
 
   # GET /cocktails/new
   def new
     @cocktail = Cocktail.new
+    2.times { component = @cocktail.components.build }
   end
 
   # GET /cocktails/1/edit
   def edit
+    # 2.times { component = @cocktail.components.build }
   end
 
   # POST /cocktails
@@ -40,14 +42,12 @@ class CocktailsController < ApplicationController
   # PATCH/PUT /cocktails/1
   # PATCH/PUT /cocktails/1.json
   def update
-    respond_to do |format|
-      if @cocktail.update(cocktail_params)
-        format.html { redirect_to @cocktail, notice: 'Cocktail was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @cocktail.errors, status: :unprocessable_entity }
-      end
+    if @cocktail.update_attributes(cocktail_params)
+      flash[:success] = "barbot has completed processing your new information"
+      redirect_to @cocktail
+    else
+      flash[:error] = "does not compute"
+      render 'edit'
     end
   end
 
@@ -66,7 +66,8 @@ class CocktailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cocktail_params
-      params.require(:cocktail).permit(:name, :description, :rating)
+      params.require(:cocktail).permit(:name, :description, :rating,
+        components_attributes: [:amount, :ingredient_id])
     end
 
     def correct_user

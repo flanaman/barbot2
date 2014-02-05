@@ -6,16 +6,16 @@
     </section>
   </aside>
   <div class="span8">
-    <% if true %>
+    <% unless @cocktail.components.empty? %>
       <h3>ingredients</h3>
       <ol class="ingredients">
         <% @cocktail.components.each do |component| %>
           <li>
-            <span class="name">
-              <%= component.ingredient.name %>
-            </span>
             <span class="amount">
               <%= component.amount %>
+            </span>
+            <span class="name">
+              <%= component.ingredient.name if component.ingredient_id? %>
             </span>
           </li>
         <% end %>

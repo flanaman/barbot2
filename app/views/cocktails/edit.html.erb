@@ -1,6 +1,7 @@
-<h1>Editing cocktail</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @cocktail %> |
-<%= link_to 'Back', cocktails_path %>
+<% provide(:title, 'edit @cocktail.name') %>
+<div class="row">
+  <div class="span6">
+    <h3>revise <%= @cocktail.name %> data</h3>
+		<%= render 'form' %>
+  </div>
+</div>

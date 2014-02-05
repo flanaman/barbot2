@@ -1,0 +1,10 @@
+<%#= render 'shared/error_messages', object: f.object %>
+<p>
+  <div class="field">
+    <%= f.text_field :amount, placeholder: "amount..." %>
+  </div>
+  <div class="checkbox">
+    <%= f.check_box :_destroy %>
+    <%= f.label :_destroy, "remove ingredient" %>
+  </div>
+</p>
