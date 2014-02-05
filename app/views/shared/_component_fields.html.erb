@@ -1,0 +1,9 @@
+<%#= render 'shared/error_messages', object: f.object %>
+<div class="component">
+  <div class="field">
+    <%= f.text_field :amount, placeholder: "amount..." %>
+    <%= f.hidden_field :_destroy %>
+		<%= link_to_remove_fields "remove", f %>
+  </div>
+</div>
+	

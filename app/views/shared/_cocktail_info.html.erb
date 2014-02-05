@@ -8,6 +8,8 @@
   rating: <%= @cocktail.rating %>
 </span>
 <% if current_user?(@cocktail.user) %>
+    <%= link_to "edit", edit_cocktail_path(@cocktail), title: @cocktail.name %>
+    |
     <%= link_to "delete", @cocktail, method: :delete,
                                   data: { confirm: "confirm your intentions" },
                                   title: @cocktail.name %>

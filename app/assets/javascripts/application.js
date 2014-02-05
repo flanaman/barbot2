@@ -15,6 +15,8 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require cocoon
+
 
 // function remove_fields(button) {
 //   $(button).prev("input[type=hidden]").val("1");

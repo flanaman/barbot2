@@ -1,5 +1,5 @@
 class Ingredient < ActiveRecord::Base
-	has_many :components
+	has_many :components, inverse_of: :ingredient
 	has_many :cocktails, through: :components
 	belongs_to :user
 
