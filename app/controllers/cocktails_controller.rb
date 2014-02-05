@@ -19,7 +19,7 @@ class CocktailsController < ApplicationController
   # GET /cocktails/new
   def new
     @cocktail = Cocktail.new
-    2.times { component = @cocktail.components.build }
+    3.times { component = @cocktail.components.build }
   end
 
   # GET /cocktails/1/edit
@@ -35,7 +35,7 @@ class CocktailsController < ApplicationController
       flash[:success] = "cocktail stored in barbot database"
       redirect_to user_path(current_user) if signed_in?
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -67,7 +67,8 @@ class CocktailsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def cocktail_params
       params.require(:cocktail).permit(:name, :description, :rating,
-        components_attributes: [:amount, :ingredient_id])
+        components_attributes: [:id, :amount, :ingredient_id, 
+          :_destroy])
     end
 
     def correct_user

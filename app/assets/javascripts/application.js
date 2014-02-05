@@ -15,3 +15,14 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+// function remove_fields(button) {
+//   $(button).prev("input[type=hidden]").val("1");
+//   $(button).closest(".fields").hide();
+// }
+
+// function add_fields(button, association, content) {
+//   var new_id = new Date().getTime();
+//   var regexp = new RegExp("new_" + association, "g")
+//   $(button).parent().before(content.replace(regexp, new_id));
+// }
