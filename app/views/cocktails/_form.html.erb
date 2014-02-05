@@ -10,9 +10,9 @@
     <%= f.label :rating, "rating (out of 5)" %>
     <%= f.number_field :rating %>
   </div>
-    <%#= f.fields_for :components do |builder| %>
-      <%#= render "component_fields", f: builder %>
-    <%# end %>
+    <%= f.fields_for :components do |builder| %>
+      <%= render "component_fields", f: builder %>
+    <% end %>
   <div>
     <%#= button_to_add_fields "add ingrededient", f, :components %>
   </div>

@@ -24,7 +24,11 @@ describe "Cocktail pages" do
 
     describe "with valid information" do
 
-      before { fill_in 'cocktail_name', with: "Lorem ipsum" }
+      before do
+        fill_in 'cocktail_name', with: "grog"
+        fill_in 'cocktail_description', with: "groggy"
+        fill_in 'cocktail_components_attributes_1_amount', with: "groggy"
+      end
       it "should create a cocktail" do
         expect { click_button "save cocktail" }.to change(Cocktail, :count).by(1)
       end

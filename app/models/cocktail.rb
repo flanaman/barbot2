@@ -1,6 +1,6 @@
 class Cocktail < ActiveRecord::Base
 	belongs_to :user
-	has_many :components, dependent: :destroy
+	has_many :components, inverse_of: :cocktail, dependent: :destroy
 	has_many :ingredients, through: :components
 
 	accepts_nested_attributes_for :components, 

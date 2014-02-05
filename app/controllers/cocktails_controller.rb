@@ -19,7 +19,7 @@ class CocktailsController < ApplicationController
   # GET /cocktails/new
   def new
     @cocktail = Cocktail.new
-    3.times { component = @cocktail.components.build }
+    2.times { component = @cocktail.components.build }
   end
 
   # GET /cocktails/1/edit
