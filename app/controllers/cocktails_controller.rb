@@ -18,6 +18,7 @@ class CocktailsController < ApplicationController
 
   # GET /cocktails/new
   def new
+    # @ratings = ['',0,1,2,3,4,5]
     @cocktail = Cocktail.new
     2.times { component = @cocktail.components.build }
   end

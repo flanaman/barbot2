@@ -9,6 +9,9 @@ module ApplicationHelper
     end
   end
 
+  def ratings
+    ['',0,1,2,3,4,5]
+  end
   # def button_to_remove_fields(name, f)
   #   f.hidden_field(:_destroy) + button_to_function(name, "remove_fields(this)")
   # end
