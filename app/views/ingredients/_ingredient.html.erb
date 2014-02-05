@@ -1,7 +1,9 @@
 <li>
   <span class="name">
   	<%= link_to ingredient.name, ingredient_path(ingredient) %>
-	  (<%= ingredient.brand unless ingredient.brand.nil? %>)	
+    <% unless ingredient.brand=="" %>
+	    <%= "("+ingredient.brand+")" %>	
+    <% end  %>
   </span>
  	<% unless ingredient.description.blank? %>
 	  <span class="description">

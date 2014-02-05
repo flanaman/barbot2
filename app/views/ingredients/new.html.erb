@@ -1,5 +1,7 @@
-<h1>New ingredient</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', ingredients_path %>
+<% provide(:title, 'new ingredient') %>
+<div class="row">
+  <div class="span6">
+    <h3>add new ingredient to barbot</h3>
+		<%= render 'form' %>
+  </div>
+</div>

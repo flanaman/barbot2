@@ -31,9 +31,9 @@ class CocktailsController < ApplicationController
     @cocktail = current_user.cocktails.build(cocktail_params)
     if @cocktail.save
       flash[:success] = "cocktail stored in barbot database"
-      redirect_to root_url
+      redirect_to user_path(current_user) if signed_in?
     else
-      render 'static_pages/home'
+      render :new
     end
   end
 
@@ -71,6 +71,6 @@ class CocktailsController < ApplicationController
 
     def correct_user
       @cocktail = current_user.cocktails.find_by(id: params[:id])
-      redirect_to root_url if @cocktail.nil?
+      redirect_to root_url if @cocktail.nil? # should this be rerouted?
     end
 end

@@ -8,7 +8,7 @@ describe "Ingredient pages" do
   before { sign_in user }
 
   describe "ingredient creation" do
-    before { visit root_path }
+    before { visit new_ingredient_path }
 
     describe "with invalid information" do
 

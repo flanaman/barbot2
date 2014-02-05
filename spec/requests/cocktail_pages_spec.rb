@@ -8,7 +8,7 @@ describe "Cocktail pages" do
   before { sign_in user }
 
   describe "cocktail creation" do
-    before { visit root_path }
+    before { visit new_cocktail_path }
 
     describe "with invalid information" do
 

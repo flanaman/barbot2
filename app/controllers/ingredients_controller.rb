@@ -29,21 +29,10 @@ class IngredientsController < ApplicationController
     @ingredient = current_user.ingredients.build(ingredient_params)
     if @ingredient.save
       flash[:success] = "ingredient stored in barbot database"
-      redirect_to root_url
+      redirect_to user_path(current_user) if signed_in?
     else
-      render 'static_pages/home'
+      render :new
     end
-
-    # @ingredient = Ingredient.new(ingredient_params)
-    # respond_to do |format|
-    #   if @ingredient.save
-    #     format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
-    #     format.json { render action: 'show', status: :created, location: @ingredient }
-    #   else
-    #     format.html { render action: 'new' }
-    #     format.json { render json: @ingredient.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /ingredients/1
@@ -68,6 +57,7 @@ class IngredientsController < ApplicationController
       format.html { redirect_to ingredients_url }
       format.json { head :no_content }
     end
+    flash[:success] = "ingredient removed from barbot database"
   end
 
   private
@@ -84,6 +74,6 @@ class IngredientsController < ApplicationController
 
     def correct_user
       @ingredient = current_user.ingredients.find_by(id: params[:id])
-      redirect_to root_url if @ingredient.nil?
+      redirect_to root_url if @ingredient.nil? # should this be rerouted?
     end
 end

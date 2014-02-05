@@ -14,11 +14,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user=User.find(params[:id])
-    @cocktails = @user.cocktails.paginate(page: params[:page])
+    @cocktails = @user.cocktails.paginate(page: params[:cocktails_page])
     @cocktail = current_user.cocktails.build if signed_in?
-    @ingredients = @user.ingredients.paginate(page: params[:page])
+    @ingredients = @user.ingredients.paginate(page: params[:ingredients_page])
     @ingredient = current_user.ingredients.build if signed_in?
-
   end
 
   # GET /users/new
