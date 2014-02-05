@@ -1,11 +1,15 @@
-<%#= render 'shared/error_messages', object: f.object %>
-<div class="component field">
+<div class="nested-fields">
+	<div class="field">
     <%= f.text_field :amount, placeholder: "amount..." %>
     <%= f.label :ingredient, "select ingredient" %>
+  </div>
+	<div class="field">
     <%= f.select :ingredient_id, @ingredients.collect {|p| [ p.name, p.id ] }, {include_blank: 'none'} %>
-    <%= f.check_box :_destroy %>
-    <%= f.label :_destroy, "remove ingredient" %>
+  </div>
+  <%= link_to_remove_association "remove ingredient", f %>
+</div>
+    <%#= f.check_box :_destroy %>
+    <%#= f.label :_destroy, "remove ingredient" %>
     <%#= f.hidden_field :_destroy %>
 		<%#= button_to_remove_fields "remove", f %>
-</div>
 	

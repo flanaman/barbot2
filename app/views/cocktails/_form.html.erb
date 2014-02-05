@@ -10,11 +10,13 @@
     <%= f.label :rating, "rating (out of 5)" %>
     <%= f.select :rating, ratings %>
   </div>
+  <div class="components">
     <%= f.fields_for :components do |builder| %>
       <%= render "component_fields", f: builder %>
     <% end %>
-  <div>
-    <%#= button_to_add_fields "add ingrededient", f, :components %>
+    <div id="links">
+      <%= link_to_add_association 'add ingredient', f, :components %>
+    </div>
   </div>
   <%= f.submit "save cocktail", class: "btn btn-large btn-primary" %>
 <% end %>

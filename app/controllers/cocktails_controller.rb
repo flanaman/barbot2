@@ -25,6 +25,7 @@ class CocktailsController < ApplicationController
 
   # GET /cocktails/1/edit
   def edit
+    @cocktail = Cocktail.find(params[:id])
     @ingredients=Ingredient.all 
     # 2.times { component = @cocktail.components.build }
   end
