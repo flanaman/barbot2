@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Barbot2::Application.config.secret_key_base = '7a028307a9b997b9bd6cd91593da4974820996022591e47aeb90c0c3c315c3c4e81e2a7b9f806d8572c00978c80ed621f3b2f30996abcc12cb1fd766312b6543'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+SampleApp::Application.config.secret_key_base = secure_token
