@@ -14,6 +14,7 @@ class ComponentsController < ApplicationController
       @name = component.generic.name
     else
       @name = component.ingredient.name
+    end
   end
 
   # GET /components/new

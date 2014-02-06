@@ -16,5 +16,5 @@
 /tmp
 
 todo.txt
-#/config/database.yml
+/config/database.yml
 .secret
