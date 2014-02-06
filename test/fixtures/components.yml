@@ -2,12 +2,10 @@
 
 one:
   amount: MyString
-  generic_id: 1
   ingredient_id: 1
   cocktail_id: 1
 
 two:
   amount: MyString
-  generic_id: 1
   ingredient_id: 1
   cocktail_id: 1

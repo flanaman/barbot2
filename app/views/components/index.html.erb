@@ -17,12 +17,10 @@
     <% @components.each do |component| %>
       <tr>
         <td><%= component.amount %></td>
-        <td><%= component.generic_id %></td>
         <td><%= component.ingredient_id %></td>
         <td><%= component.cocktail_id %></td>
         <td><%= link_to 'Show', component %></td>
         <td><%= link_to 'Edit', edit_component_path(component) %></td>
-        <td><%= link_to 'Destroy', component, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +28,3 @@
 
 <br>
 
-<%= link_to 'New Component', new_component_path %>

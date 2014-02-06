@@ -5065,18 +5065,11 @@ aside textarea {
   height: 100px;
   margin-bottom: 5px; }
 
-/* ingredients and generics */
+/* ingredients */
 .ingredients {
   list-style: none;
   margin: 10px 0 0 0; }
   .ingredients li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8; }
-
-.generics {
-  list-style: none;
-  margin: 10px 0 0 0; }
-  .generics li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8; }
 

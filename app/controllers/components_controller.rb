@@ -10,11 +10,6 @@ class ComponentsController < ApplicationController
   # GET /components/1
   # GET /components/1.json
   def show
-    unless @component.generic_id.nil?
-      @name = component.generic.name
-    else
-      @name = component.ingredient.name
-    end
   end
 
   # GET /components/new
@@ -74,6 +69,6 @@ class ComponentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def component_params
-      params.require(:component).permit(:amount, :generic_id, :ingredient_id, :cocktail_id)
+      params.require(:component).permit(:amount, :ingredient_id, :cocktail_id)
     end
 end

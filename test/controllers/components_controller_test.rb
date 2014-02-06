@@ -18,7 +18,7 @@ class ComponentsControllerTest < ActionController::TestCase
 
   test "should create component" do
     assert_difference('Component.count') do
-      post :create, component: { amount: @component.amount, cocktail_id: @component.cocktail_id, generic_id: @component.generic_id, ingredient_id: @component.ingredient_id }
+      post :create, component: { amount: @component.amount, cocktail_id: @component.cocktail_id, ingredient_id: @component.ingredient_id }
     end
 
     assert_redirected_to component_path(assigns(:component))
@@ -35,7 +35,7 @@ class ComponentsControllerTest < ActionController::TestCase
   end
 
   test "should update component" do
-    patch :update, id: @component, component: { amount: @component.amount, cocktail_id: @component.cocktail_id, generic_id: @component.generic_id, ingredient_id: @component.ingredient_id }
+    patch :update, id: @component, component: { amount: @component.amount, cocktail_id: @component.cocktail_id,  ingredient_id: @component.ingredient_id }
     assert_redirected_to component_path(assigns(:component))
   end
 

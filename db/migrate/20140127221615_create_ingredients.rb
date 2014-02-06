@@ -5,7 +5,6 @@ class CreateIngredients < ActiveRecord::Migration
       t.string :description
       t.integer :proof
       t.integer :rating
-      t.integer :generic_id
 
       t.timestamps
     end

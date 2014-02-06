@@ -2,7 +2,6 @@ class CreateComponents < ActiveRecord::Migration
   def change
     create_table :components do |t|
       t.string :amount
-      t.integer :generic_id
       t.integer :ingredient_id
       t.integer :cocktail_id
 
