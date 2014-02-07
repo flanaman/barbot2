@@ -3,6 +3,9 @@
     <%= f.label :amount, "amount" %>
     <%= f.text_field :amount %>
   </div>
+  <div class="field">
+    <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
+  </div>
 	<div class="field">
     <%= f.label :ingredient, "select ingredient" %>
     <%= f.select :ingredient_id, @ingredients.collect {|p| [ p.name, p.id ] }, 
@@ -12,8 +15,4 @@
   	<%= link_to_remove_association "remove ingredient", f %>
   </div>
 </div>
-    <%#= f.check_box :_destroy %>
-    <%#= f.label :_destroy, "remove ingredient" %>
-    <%#= f.hidden_field :_destroy %>
-		<%#= button_to_remove_fields "remove", f %>
 	

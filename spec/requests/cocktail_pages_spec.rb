@@ -27,7 +27,7 @@ describe "Cocktail pages" do
       before do
         fill_in 'cocktail_name', with: "grog"
         fill_in 'cocktail_description', with: "groggy"
-        fill_in 'cocktail_components_attributes_1_amount', with: "groggy"
+        fill_in 'cocktail_components_attributes_0_amount', with: "groggy"
       end
       it "should create a cocktail" do
         expect { click_button "save cocktail" }.to change(Cocktail, :count).by(1)

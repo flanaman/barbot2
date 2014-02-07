@@ -1,7 +1,7 @@
 class Cocktail < ActiveRecord::Base
 	belongs_to :user
 	has_many :components, inverse_of: :cocktail, dependent: :destroy
-	has_many :ingredients, through: :components
+	has_many :ingredients, through: :components, inverse_of: :cocktail
 
 	accepts_nested_attributes_for :components, 
 		reject_if: lambda { |a| a[:amount].blank? }, allow_destroy: true

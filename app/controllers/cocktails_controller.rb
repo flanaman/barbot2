@@ -18,7 +18,7 @@ class CocktailsController < ApplicationController
 
   # GET /cocktails/new
   def new
-    @ingredients=Ingredient.all 
+    @ingredients=Ingredient.all
     @cocktail = Cocktail.new
     2.times { component = @cocktail.components.build }
   end
@@ -33,6 +33,7 @@ class CocktailsController < ApplicationController
   # POST /cocktails
   # POST /cocktails.json
   def create
+    @ingredients=Ingredient.all 
     @cocktail = current_user.cocktails.build(cocktail_params)
     if @cocktail.save
       flash[:success] = "cocktail stored in barbot database"

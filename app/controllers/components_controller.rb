@@ -4,7 +4,7 @@ class ComponentsController < ApplicationController
   # GET /components
   # GET /components.json
   def index
-    @components = Component.all
+    # @components = Component.all
   end
 
   # GET /components/1
@@ -14,7 +14,7 @@ class ComponentsController < ApplicationController
 
   # GET /components/new
   def new
-    @component = Component.new
+    # @component = Component.new
   end
 
   # GET /components/1/edit
@@ -24,41 +24,41 @@ class ComponentsController < ApplicationController
   # POST /components
   # POST /components.json
   def create
-    @component = Component.new(component_params)
+    # @component = Component.new(component_params)
 
-    respond_to do |format|
-      if @component.save
-        format.html { redirect_to @component, notice: 'Component was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @component }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @component.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @component.save
+    #     format.html { redirect_to @component, notice: 'Component was successfully created.' }
+    #     format.json { render action: 'show', status: :created, location: @component }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @component.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /components/1
   # PATCH/PUT /components/1.json
   def update
-    respond_to do |format|
-      if @component.update(component_params)
-        format.html { redirect_to @component, notice: 'Component was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @component.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @component.update(component_params)
+    #     format.html { redirect_to @component, notice: 'Component was successfully updated.' }
+    #     format.json { head :no_content }
+    #   else
+    #     format.html { render action: 'edit' }
+    #     format.json { render json: @component.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /components/1
   # DELETE /components/1.json
   def destroy
-    @component.destroy
-    respond_to do |format|
-      format.html { redirect_to components_url }
-      format.json { head :no_content }
-    end
+    # @component.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to components_url }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
